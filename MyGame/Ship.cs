@@ -2,6 +2,7 @@
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
+using System;
 
 namespace MyGame
 {
@@ -30,10 +31,12 @@ namespace MyGame
 
             int msElapsed = elapsed.AsMilliseconds();
 
+            int size = Convert.ToInt32(Game.RenderWindow.Size);
+
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && y >= 0)         { y -= Speed * msElapsed; }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && y <= 480)     { y += Speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && y <= (size + 120))     { y += Speed * msElapsed; }
             if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && x >= 0)       { x -= Speed * msElapsed; }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && x <= 716)    { x += Speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && x <= (size + 84))    { x += Speed * msElapsed; }
             _sprite.Position = new Vector2f(x, y);
 
             if (_fireTimer > 0) { _fireTimer -= msElapsed; }
