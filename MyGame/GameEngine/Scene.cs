@@ -97,8 +97,8 @@ namespace GameEngine
             // Here we use the lambda declared above by passing it to the standard RemoveAll
             // method on List<T>, which calls our lambda once for each element in
             // gameObjects. If our lambda returns true, that game object ends up being
-            // removed from our list.
-            _gameObjects.RemoveAll(isDead);
+            // removed from our list. 
+            _gameObjects.RemoveAll(isDead); 
         }
     }
 }

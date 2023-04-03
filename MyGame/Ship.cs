@@ -31,12 +31,12 @@ namespace MyGame
 
             int msElapsed = elapsed.AsMilliseconds();
 
-            int size = Convert.ToInt32(Game.RenderWindow.Size);
+            Vector2u size = Game.RenderWindow.Size;
 
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && y >= 0)         { y -= Speed * msElapsed; }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && y <= (size + 120))     { y += Speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && y <= (size.Y - 120))     { y += Speed * msElapsed; }
             if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && x >= 0)       { x -= Speed * msElapsed; }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && x <= (size + 84))    { x += Speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && x <= (size.X - 84))    { x += Speed * msElapsed; }
             _sprite.Position = new Vector2f(x, y);
 
             if (_fireTimer > 0) { _fireTimer -= msElapsed; }
